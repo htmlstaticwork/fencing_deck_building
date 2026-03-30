@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | IronBark Outdoors</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    
+    <style>
+        :root {
+            --sidebar-width: 280px;
+        }
+        .dashboard-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: var(--sidebar-width);
+            background: #FFFFFF;
+            border-right: 1px solid #E0E0E0;
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 2rem 3rem;
+            background: #F9F9F9;
+        }
+        .dashboard-nav-link {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            margin-bottom: 0.25rem;
+            color: #444;
+            transition: var(--transition);
+        }
+        .dashboard-nav-link:hover {
+            background: #F0F0F0;
+        }
+        .dashboard-nav-link.active {
+            background: var(--accent-color) !important;
+            color: #FFF !important;
+        }
+        .dashboard-nav-link i {
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+        [dir="rtl"] .sidebar {
+            left: auto;
+            right: 0;
+            border-right: none;
+            border-left: 1px solid #E0E0E0;
+        }
+        [dir="rtl"] .main-content {
+            margin-left: 0;
+            margin-right: var(--sidebar-width);
+        }
+        [dir="rtl"] .dashboard-nav-link i {
+            margin-right: 0;
+            margin-left: 1rem;
+        }
+        @media (max-width: 1100px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            [dir="rtl"] .sidebar {
+                transform: translateX(100%);
+            }
+            [dir="rtl"] .sidebar.show {
+                transform: translateX(0);
+            }
+            [dir="rtl"] .main-content {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar d-flex flex-column" id="dashboardSidebar">
+            <div class="mb-5 px-3">
+                <img src="assets/images/logo.svg" alt="IronBark Outdoors" height="40">
+            </div>
+            
+            <nav class="flex-grow-1">
+                <a href="#" class="dashboard-nav-link active" data-section="overview">
+                    <i class="bi bi-grid"></i> Overview
+                </a>
+                <a href="#" class="dashboard-nav-link" data-section="timeline">
+                    <i class="bi bi-calendar-event"></i> My Project
+                </a>
+                <a href="#" class="dashboard-nav-link" data-section="materials">
+                    <i class="bi bi-layers"></i> Materials
+                </a>
+                <a href="#" class="dashboard-nav-link" data-section="plans">
+                    <i class="bi bi-map"></i> Design Plans
+                </a>
+                <a href="#" class="dashboard-nav-link" data-section="messages">
+                    <i class="bi bi-chat-dots"></i> Messages
+                </a>
+                <a href="#" class="dashboard-nav-link" data-section="billing">
+                    <i class="bi bi-receipt"></i> Billing
+                </a>
+            </nav>
+            
+            <div class="mt-auto border-top pt-4">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Johnson&background=B24D2E&color=fff" class="rounded-circle me-3" width="40" alt="Profile">
+                    <div class="small">
+                        <div class="fw-bold">Alex Johnson</div>
+                        <a href="index.html" class="text-muted text-decoration-none">Homeowner</a>
+                    </div>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-link theme-toggle p-0" title="Toggle Theme"><i class="bi bi-moon"></i></button>
+                    <button class="btn btn-sm btn-link rtl-toggle p-0" title="Toggle Direction"><i class="bi bi-translate"></i></button>
+                    <a href="login.html" class="btn btn-sm btn-link p-0 text-danger ms-auto" title="Logout"><i class="bi bi-box-arrow-right"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar Toggler (Mobile) -->
+            <button class="btn btn-dark d-lg-none mb-4 ms-2" onclick="document.getElementById('dashboardSidebar').classList.toggle('show')">
+                <i class="bi bi-list"></i> Menu
+            </button>
+
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section">
+                <header class="d-flex justify-content-between align-items-center mb-5">
+                    <div>
+                        <h2 class="mb-1">Welcome Home, Alex</h2>
+                        <p class="text-muted">Your Cedar Privacy Fence is currently 65% complete.</p>
+                    </div>
+                    <div class="text-end d-none d-md-block">
+                        <div class="badge bg-accent px-3 py-2">PROJECT ID: #IB-9921</div>
+                    </div>
+                </header>
+
+                <div class="row g-4 mb-5">
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm p-4 text-center h-100">
+                            <div class="text-accent mb-2"><i class="bi bi-tools fs-1"></i></div>
+                            <div class="fw-bold text-muted small">Status</div>
+                            <div class="h4 mb-0">Construction</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm p-4 text-center h-100">
+                            <div class="text-accent mb-2"><i class="bi bi-clock fs-1"></i></div>
+                            <div class="fw-bold text-muted small">Days Remaining</div>
+                            <div class="h4 mb-0">3 Days</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm p-4 text-center h-100">
+                            <div class="text-accent mb-2"><i class="bi bi-box-seam fs-1"></i></div>
+                            <div class="fw-bold text-muted small">Materials</div>
+                            <div class="h4 mb-0">Delivered</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm p-4 text-center h-100">
+                            <div class="text-accent mb-2"><i class="bi bi-envelope fs-1"></i></div>
+                            <div class="fw-bold text-muted small">Unread Messages</div>
+                            <div class="h4 mb-0">1 New</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow-sm p-4">
+                        <h5 class="mb-4">Current Phase Highlight</h5>
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">Post Setting & Anchoring</h6>
+                                <p class="text-muted mb-0 small">Structural work is complete. Grading for panels begins tomorrow.</p>
+                            </div>
+                            <div class="fs-1 fw-bold text-accent">65%</div>
+                        </div>
+                        <div class="progress mt-3" style="height: 8px;">
+                            <div class="progress-bar bg-accent" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section id="timeline" class="dashboard-section d-none">
+                <header class="mb-5">
+                    <h2>Project Timeline</h2>
+                    <p class="text-muted">Track every board from design to final polish.</p>
+                </header>
+
+                <div class="card border-0 shadow-sm p-5 mb-5">
+                    <div class="d-flex justify-content-between position-relative mb-5" style="z-index: 1;">
+                        <span class="position-absolute bg-accent" style="height: 4px; top: 12px; left: 0; right: 0; z-index: -1;"></span>
+                        <div class="text-center">
+                            <div class="rounded-circle bg-accent text-white d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 30px; height: 30px;"><i class="bi bi-check small"></i></div>
+                            <div class="small fw-bold">Design</div>
+                            <div class="text-muted" style="font-size: 0.65rem;">Completed Mar 10</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="rounded-circle bg-accent text-white d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 30px; height: 30px;"><i class="bi bi-check small"></i></div>
+                            <div class="small fw-bold">Materials</div>
+                            <div class="text-muted" style="font-size: 0.65rem;">Completed Mar 12</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="rounded-circle bg-accent text-white d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 30px; height: 30px; border: 4px solid #fff;">3</div>
+                            <div class="small fw-bold">Build</div>
+                            <div class="text-accent" style="font-size: 0.65rem;">In Progress</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="rounded-circle bg-light text-muted d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 30px; height: 30px;">4</div>
+                            <div class="small fw-bold opacity-50">Inspect</div>
+                            <div class="text-muted" style="font-size: 0.65rem;">Scheduled Mar 22</div>
+                        </div>
+                    </div>
+
+                    <div class="row pt-4">
+                        <div class="col-md-6 border-end">
+                            <h6 class="text-uppercase text-muted mb-4 ls-1">Past Milestones</h6>
+                            <div class="mb-4">
+                                <div class="fw-bold">Foundation Poured</div>
+                                <div class="text-muted small">Mar 15, 2026 • Lead Builder: Mike R.</div>
+                            </div>
+                            <div class="mb-0">
+                                <div class="fw-bold">Material Delivery</div>
+                                <div class="text-muted small">Mar 12, 2026 • Checked by Site Inspector</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ps-md-4">
+                            <h6 class="text-uppercase text-muted mb-4 ls-1">Upcoming Work</h6>
+                            <div class="mb-4">
+                                <div class="fw-bold">Panel Installation</div>
+                                <div class="text-muted small">Scheduled: Mar 18 • Expected duration: 2 days</div>
+                            </div>
+                            <div class="mb-0">
+                                <div class="fw-bold">Custom Gate Fitting</div>
+                                <div class="text-muted small">Scheduled: Mar 20 • Morning Session</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Other sections... (impl. logic handles the d-none) -->
+             <section id="materials" class="dashboard-section d-none">
+                 <h2>Material Selection</h2>
+                 <p class="text-muted mb-5">Confirm your preferences for board grain and hardware finishes.</p>
+                 <div class="row g-4">
+                     <div class="col-md-6">
+                         <div class="card border-0 shadow-sm h-100 overflow-hidden">
+                             <img src="https://placehold.co/400x200/444/fff?text=Knotted+Cedar" class="card-img-top rounded-0" alt="Grain">
+                             <div class="card-body">
+                                 <h6>Wood Grain: Grade A Knotted</h6>
+                                 <p class="small text-muted">Rustic, traditional look with visible natural wood characteristics.</p>
+                                 <button class="btn btn-outline-dark btn-sm rounded-0 w-100 btn-select" onclick="selectMaterial(this, 'Knotted Cedar')">Select Preference</button>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="card border-0 shadow-sm h-100 overflow-hidden">
+                             <img src="https://placehold.co/400x200/222/fff?text=Clear+Cedar" class="card-img-top rounded-0" alt="Grain">
+                             <div class="card-body">
+                                 <h6>Wood Grain: Clear Vertical</h6>
+                                 <p class="small text-muted">Modern, consistent aesthetic with minimal knots and straight lines.</p>
+                                 <button class="btn btn-dark btn-sm rounded-0 w-100 btn-select" onclick="selectMaterial(this, 'Clear Cedar')"><i class="bi bi-check-circle-fill me-2"></i>Preferred</button>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </section>
+
+             <section id="billing" class="dashboard-section d-none">
+                 <h2>Billing & Payments</h2>
+                 <p class="text-muted mb-5">Manage your project investment and download invoices.</p>
+                 <div class="card border-0 shadow-sm">
+                     <table class="table mb-0">
+                         <thead class="table-light">
+                             <tr>
+                                 <th>Description</th>
+                                 <th>Date</th>
+                                 <th>Amount</th>
+                                 <th>Status</th>
+                                 <th class="text-end">Invoice</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <td>Project Deposit (50%)</td>
+                                 <td>Mar 01, 2026</td>
+                                 <td>$4,250.00</td>
+                                 <td><span class="badge bg-success-subtle text-success border border-success-subtle px-3">PAID</span></td>
+                                 <td class="text-end"><a href="#"><i class="bi bi-download"></i></a></td>
+                             </tr>
+                             <tr class="opacity-75">
+                                 <td>Final Balance (upon insp.)</td>
+                                 <td>Mar 22, 2026</td>
+                                 <td>$4,250.00</td>
+                                 <td><span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle px-3">PENDING</span></td>
+                                 <td class="text-end"><i class="bi bi-lock-fill text-muted"></i></td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+             </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

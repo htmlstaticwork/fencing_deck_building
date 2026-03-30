@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outdoor Living Catalog | IronBark Outdoors</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+    <!-- Header (Identical to index.html) -->
+    <header class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/logo.svg" alt="IronBark Outdoors" height="45">
+            </a>
+            <div class="d-flex align-items-center order-lg-3">
+                <button class="btn btn-link theme-toggle p-2"><i class="bi bi-moon fs-5"></i></button>
+                <button class="btn btn-link rtl-toggle p-2 me-2"><i class="bi bi-translate fs-5"></i></button>
+                <a href="contact.html" class="btn btn-primary d-none d-lg-inline-block">Get a Free Quote</a>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#navCanvas">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-center">
+                <ul class="navbar-nav nav-desktop">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Our Crew</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Offcanvas -->
+    <div class="offcanvas offcanvas-end" id="navCanvas">
+        <div class="offcanvas-header border-bottom">
+            <img src="assets/images/logo.svg" alt="IronBark Outdoors" height="35">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">Our Crew</a></li>
+                <!-- ... other links ... -->
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1: Full-Bleed Gallery Intro -->
+        <section class="p-0 overflow-hidden">
+            <div class="row g-0">
+                <div class="col-md-6 col-lg-3">
+                    <div class="gallery-item position-relative overflow-hidden" style="aspect-ratio: 1/1;">
+                        <img src="assets/images/gallery_1.png" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery">
+                        <div class="gallery-overlay p-4 position-absolute bottom-0 start-0 w-100 glass text-white text-center opacity-0 transition-3">
+                            <span class="small text-uppercase">Cedar Arbor</span>
+                            <h6 class="mb-0">Oak Park</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- ... Repeat for 3 more images ... -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="gallery-item position-relative overflow-hidden" style="aspect-ratio: 1/1;">
+                        <img src="assets/images/gallery_2.png" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="gallery-item position-relative overflow-hidden" style="aspect-ratio: 1/1;">
+                        <img src="assets/images/gallery_3.png" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="gallery-item position-relative overflow-hidden" style="aspect-ratio: 1/1;">
+                        <img src="assets/images/gallery_4.png" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery">
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center py-5">
+                <h1 class="display-4 fw-bold">Handcrafted Outdoor Structures.<br>Built to Last Decades.</h1>
+            </div>
+        </section>
+
+        <!-- Section 2: Why IronBark? (Accordion) -->
+        <section class="why-ironbark bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="section-title text-center mx-auto mb-5">Built on Honest Answers</h2>
+                        <div class="accordion accordion-flush bg-transparent" id="whyAccordion">
+                            <div class="accordion-item bg-transparent border-bottom py-3">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#ans1">
+                                        How long will my fence last?
+                                    </button>
+                                </h3>
+                                <div id="ans1" class="accordion-collapse collapse" data-bs-parent="#whyAccordion">
+                                    <div class="accordion-body text-muted">A Cedar fence typically lasts 15-20 years with proper maintenance, while our composite options are rated for 30+ years with zero rot.</div>
+                                </div>
+                            </div>
+                            <!-- ... Other questions ... -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Seasonal Tip Spotlight -->
+        <section class="seasonal-tip py-0">
+            <div class="container">
+                <div class="card bg-dark text-white border-0 rounded-0 p-5 position-relative overflow-hidden">
+                    <div class="row align-items-center">
+                        <div class="col-md-8 position-relative z-index-2">
+                            <span class="badge bg-accent mb-3 px-3">SEASONAL FOCUS</span>
+                            <h2 class="display-6 mb-3">Spring Tip: Schedule your deck staining before the May humidity hits.</h2>
+                            <p class="opacity-75 mb-0">Early spring is the optimal window for moisture-tight seals on exterior woodwork.</p>
+                        </div>
+                        <div class="col-md-4 text-end d-none d-md-block opacity-25">
+                            <i class="bi bi-calendar-check display-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Service Areas Map -->
+        <section class="service-map">
+            <div class="container">
+                <h2 class="section-title text-center mx-auto mb-5">Areas We Build</h2>
+                <div class="text-center p-5 border bg-white shadow-sm">
+                    <!-- Stylized SVG Map Placeholder -->
+                    <svg viewBox="0 0 400 300" class="img-fluid w-50 mx-auto mb-4 opacity-50">
+                        <path d="M50 50 Q100 20, 150 50 T250 50 T350 50 V250 Q300 280, 200 250 T50 250 Z" fill="var(--accent-color)" opacity="0.1" />
+                        <circle cx="200" cy="150" r="10" fill="var(--accent-color)" />
+                        <text x="220" y="155" font-family="sans-serif" font-size="12">HQ: Metro North</text>
+                    </svg>
+                    <div class="row row-cols-2 row-cols-md-4 g-4 mt-4">
+                        <div class="col fw-bold text-uppercase small">Lincoln Park</div>
+                        <div class="col fw-bold text-uppercase small">Oak Park</div>
+                        <div class="col fw-bold text-uppercase small">Evanston</div>
+                        <div class="col fw-bold text-uppercase small">Wilmette</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Blog Preview -->
+        <section class="blog-preview bg-light">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-5">
+                    <h2 class="section-title m-0">Outdoor Living Tips</h2>
+                    <a href="blog.html" class="btn btn-link text-decoration-none p-0">View All Posts <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm overflow-hidden rounded-0">
+                            <div class="card-body p-4">
+                                <span class="small text-muted text-uppercase mb-2 d-block">Materials</span>
+                                <h4 class="mb-3">Composite vs. Cedar: The 2026 Comparison</h4>
+                                <p class="text-muted">A deep dive into lifespan, maintenance costs, and resale value for modern homeowners.</p>
+                                <a href="blog-details.html" class="stretched-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm overflow-hidden rounded-0">
+                            <div class="card-body p-4">
+                                <span class="small text-muted text-uppercase mb-2 d-block">Maintenance</span>
+                                <h4 class="mb-3">How to Stain Your Deck Like a Professional</h4>
+                                <p class="text-muted">Avoid the 5 most common mistakes that lead to peeling and uneven coloring.</p>
+                                <a href="blog-details.html" class="stretched-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: CTA (Same as Index) -->
+        <section class="cta py-5">
+            <div class="container text-center">
+                <h2 class="display-5 mb-4">Your backyard deserves better than a chain-link fence.</h2>
+                <div class="col-lg-6 mx-auto">
+                    <form class="input-group mb-3 needs-validation" novalidate>
+                        <input type="email" class="form-control rounded-0" placeholder="Enter your email" required>
+                        <button class="btn btn-primary rounded-0" type="submit">Get a Free Estimate</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Identical) -->
+    <footer class="footer py-5 border-top">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <img src="assets/images/logo.svg" alt="IronBark Outdoors" height="35" class="mb-4">
+                    <p class="text-muted small">Premium outdoor structures built for craftsmanship and longevity.</p>
+                </div>
+            </div>
+            <hr class="my-5">
+            <p class="small text-muted text-center mb-0">© 2026 IronBark Outdoors. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

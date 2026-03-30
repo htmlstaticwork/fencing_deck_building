@@ -1,0 +1,61 @@
+/**
+ * IronBark Outdoors - RTL Language Overrides
+ * Flips layouts for Hebrew/Arabic/etc support
+ */
+
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .progress-track {
+    padding-left: 0;
+    padding-right: 3rem;
+}
+
+[dir="rtl"] .progress-track::before {
+    left: auto;
+    right: 14px;
+}
+
+[dir="rtl"] .progress-item::before {
+    left: auto;
+    right: -32px;
+}
+
+[dir="rtl"] .ba-handle {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+[dir="rtl"] .ba-handle::before {
+    transform: translate(50%, -50%);
+}
+
+[dir="rtl"] .ba-after {
+    clip-path: inset(0 50% 0 0);
+}
+
+/* Specific component overrides for RTL */
+[dir="rtl"] .section-title::after {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+[dir="rtl"] .ms-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+[dir="rtl"] .me-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+[dir="rtl"] .text-start {
+    text-align: right !important;
+}
+
+[dir="rtl"] .text-end {
+    text-align: left !important;
+}

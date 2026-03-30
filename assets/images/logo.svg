@@ -1,0 +1,15 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Woodgrain Round Icon -->
+  <circle cx="30" cy="30" r="25" stroke="#B24D2E" stroke-width="2" fill="none" />
+  <path d="M30 10 C35 15, 25 20, 30 25 C35 30, 25 35, 30 40 C35 45, 25 50, 30 55" stroke="#B24D2E" stroke-width="1.5" fill="none" opacity="0.6" />
+  <path d="M20 15 C25 20, 15 25, 20 30 C25 35, 15 40, 20 45" stroke="#B24D2E" stroke-width="1" fill="none" opacity="0.4" />
+  <path d="M40 15 C35 20, 45 25, 40 30 C35 35, 45 40, 40 45" stroke="#B24D2E" stroke-width="1" fill="none" opacity="0.4" />
+  
+  <!-- Typography -->
+  <text x="65" y="32" font-family="'Outfit', sans-serif" font-weight="700" font-size="18" fill="#000000" class="logo-text">IronBark</text>
+  <text x="65" y="50" font-family="'Outfit', sans-serif" font-weight="400" font-size="14" fill="#B24D2E" class="logo-accent">OUTDOORS</text>
+  
+  <style>
+    .dark-mode .logo-text { fill: #FFFFFF; }
+  </style>
+</svg>
