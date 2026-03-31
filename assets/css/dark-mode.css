@@ -1,15 +1,15 @@
 /**
  * IronBark Outdoors - Dark Mode Styles
- * Palette: #1E1E1E (Charcoal Background), White (Text)
+ * Palette: Black (#000000), White (#FFFFFF), Green (#4a8b5c)
  */
 
 body.dark-mode {
-    --bg-color: #1A1A1A;
+    --bg-color: #000000;
     --text-color: #FFFFFF;
     --primary-color: #FFFFFF;
     --secondary-color: #000000;
-    --card-bg: #2A2A2A;
-    --border-color: #333333;
+    --card-bg: #000000;
+    --border-color: #FFFFFF;
 }
 
 body.dark-mode .navbar {
@@ -48,4 +48,14 @@ body.dark-mode .nav-link:hover {
 /* Specific elements that need visibility tweaks */
 body.dark-mode .footer {
     background-color: #000000;
+}
+
+body.dark-mode .btn-outline-dark {
+    border-color: var(--border-color) !important;
+    color: var(--text-color) !important;
+}
+
+body.dark-mode .btn-outline-dark:hover {
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
 }

@@ -59,3 +59,48 @@
 [dir="rtl"] .text-end {
     text-align: left !important;
 }
+
+/* Header RTL Adjustments */
+[dir="rtl"] .navbar-nav {
+    padding-right: 0;
+}
+
+[dir="rtl"] .nav-desktop {
+    gap: 1.5rem;
+}
+
+[dir="rtl"] .nav-desktop .nav-item {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+[dir="rtl"] .dropdown-toggle::after {
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
+    vertical-align: middle;
+}
+
+[dir="rtl"] .d-flex.align-items-center.order-lg-3 {
+    gap: 0.75rem;
+}
+
+[dir="rtl"] .btn.me-2 {
+    margin-right: 0 !important;
+}
+
+[dir="rtl"] .btn.ms-2 {
+    margin-left: 0 !important;
+}
+
+[dir="rtl"] .navbar-brand {
+    margin-right: 0;
+    margin-left: 1.5rem;
+}
+
+/* Ensure caret doesn't overlap text */
+[dir="rtl"] .nav-link.dropdown-toggle {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 0.5rem;
+}

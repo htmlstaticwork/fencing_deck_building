@@ -7,19 +7,85 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
 <body>
-    <header class="navbar navbar-expand-lg sticky-top"><div class="container"><a class="navbar-brand" href="index.html"><img src="assets/images/logo.svg" alt="Logo" height="40"></a></div></header>
-    <main class="py-5">
+    <!-- Header -->
+    <header class="navbar  sticky-top">
         <div class="container">
-            <h1 class="display-4 fw-bold text-center mb-5">Outdoor Structures Investment Guide</h1>
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/logo.svg" alt="IronBark Outdoors" height="45">
+            </a>
+            
+            <div class="d-flex align-items-center order-lg-3">
+                <button class="btn btn-link theme-toggle p-2" aria-label="Toggle Theme">
+                    <i class="bi bi-moon fs-5"></i>
+                </button>
+                <button class="btn btn-link rtl-toggle p-2 me-2" aria-label="Toggle Direction">
+                    <i class="bi bi-translate fs-5"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline-primary nav-btn-desktop me-2">Login</a>
+                <a href="dashboard.html" class="btn btn-primary nav-btn-desktop">Dashboard</a>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#navCanvas">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav nav-desktop">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">Home</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html">Modern Showcase</a></li>
+                            <li><a class="dropdown-item" href="home-2.html">Project Catalog</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Our Crew</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Offcanvas for Mobile -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="navCanvas">
+        <div class="offcanvas-header border-bottom">
+            
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">Home</a>
+                    <ul class="dropdown-menu border-0 bg-transparent ps-3">
+                        <li><a class="nav-link border-0" href="index.html">Modern Showcase</a></li>
+                        <li><a class="nav-link border-0" href="home-2.html">Project Catalog</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about.html">Our Crew</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item mt-3"><a href="login.html" class="btn btn-outline-dark w-100">Login</a></li>
+                <li class="nav-item mt-2"><a href="dashboard.html" class="btn btn-primary w-100">Dashboard</a></li>
+            </ul>
+        </div>
+    </div>
+    <main class="py-4">
+        <div class="container">
+            <h1 class="display-4 fw-bold text-center mb-4">Outdoor Structures Investment Guide</h1>
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-5">
-                    <div class="card border-0 shadow-sm p-5 h-100 rounded-0">
-                        <h4 class="mb-4">Standard Build</h4>
-                        <p class="text-muted mb-4">Western Red Cedar construction for traditional craftsmanship and natural aesthetics.</p>
-                        <div class="h2 mb-5">$$-$$$</div>
-                        <ul class="list-unstyled mb-5 opacity-75">
+                    <div class="card border border-dark p-5 h-100 rounded-0">
+                        <p class="mb-4">Western Red Cedar construction for traditional craftsmanship and natural aesthetics.</p>
+                        <div class="h2 mb-4">$$-$$$</div>
+                        <ul class="list-unstyled mb-4 opacity-75">
                             <li class="mb-3"><i class="bi bi-check-circle me-2"></i> PostMaster Steal Posts</li>
                             <li class="mb-3"><i class="bi bi-check-circle me-2"></i> Grade A Knotted Cedar</li>
                             <li class="mb-3"><i class="bi bi-check-circle me-2"></i> 2-Year Stain Warranty</li>
@@ -28,11 +94,11 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <div class="card border-0 shadow-sm p-5 h-100 rounded-0 bg-dark text-white">
+                    <div class="card border border-dark p-5 h-100 rounded-0 bg-dark text-white">
                         <h4 class="mb-4">Premium Build</h4>
                         <p class="text-white text-opacity-75 mb-4">High-performance composite decking and automated shade structures for zero maintenance.</p>
-                        <div class="h2 mb-5">$$$$+</div>
-                        <ul class="list-unstyled mb-5 opacity-75">
+                        <div class="h2 mb-4">$$$$+</div>
+                        <ul class="list-unstyled mb-4 opacity-75">
                             <li class="mb-3"><i class="bi bi-check-circle me-2"></i> 30+ Year Lifespan</li>
                             <li class="mb-3"><i class="bi bi-check-circle me-2"></i> Custom LED Integration</li>
                             <li class="mb-3"><i class="bi bi-check-circle me-2"></i> Lifetime Railing Warranty</li>
@@ -57,7 +123,74 @@
                     </tbody>
                 </table>
             </div>
+            </div>
+            
+            <div class="mt-5 bg-light p-5 border-top border-bottom text-center">
+                <h2 class="section-title mb-4">Financing & Payment Plans</h2>
+                <p class="lead mb-4">We offer flexible financing through our partners to help you build your dream backyard today.</p>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-3"><strong>0% APR</strong><p class="small opacity-75">For 12 Months</p></div>
+                    <div class="col-md-3"><strong>Low Monthly</strong><p class="small opacity-75">Starting at $99/mo</p></div>
+                    <div class="col-md-3"><strong>Instant Approval</strong><p class="small opacity-75">Soft Credit Check</p></div>
+                </div>
+            </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer py-4 border-top">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <img src="assets/images/logo.svg" alt="IronBark Outdoors" height="35" class="mb-4">
+                    <p class="text-muted small">Premium outdoor structures built for craftsmanship and longevity. Serving the greater metro area since 2014.</p>
+                    <div class="d-flex gap-3 fs-5 mt-4">
+                        <a href="#" class="text-muted"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-4">Project Types</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted small d-block mb-2">Privacy Fences</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Composite Decks</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Cedar Arbors</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Industrial Gates</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-4">Support</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted small d-block mb-2">Warranty Info</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Material Care</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Financing</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Customer Login</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-4">Newsletter</h6>
+                    <p class="text-muted small mb-3">Get seasonal maintenance tips and project inspiration.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control form-control-sm rounded-0" placeholder="Email">
+                        <button class="btn btn-dark btn-sm rounded-0">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <p class="small text-muted mb-0">© 2026 IronBark Outdoors. All rights reserved.</p>
+                <div class="mt-3 mt-md-0">
+                    <a href="#" class="btn btn-link btn-sm p-0 me-3 text-muted"><i class="bi bi-arrow-up-circle fs-4"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
+

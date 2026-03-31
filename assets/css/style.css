@@ -1,23 +1,89 @@
 /**
  * IronBark Outdoors - Core Design System
- * Palette: Black, White, #B24D2E (Metallic Rust)
+ * Palette: Black (#000000), White (#FFFFFF), Green (#4a8b5c)
  */
 
 :root {
     --primary-color: #000000;
     --secondary-color: #FFFFFF;
-    --accent-color: #B24D2E;
-    --accent-rgb: 178, 77, 46;
+    --accent-color: #4a8b5c;
+    --accent-rgb: 74, 139, 92;
     --bg-color: #FFFFFF;
     --text-color: #000000;
-    --card-bg: #F9F9F9;
-    --border-color: #E0E0E0;
+    --card-bg: #FFFFFF;
+    --border-color: #000000;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'DM Sans', sans-serif;
-    
+
     /* Logical spacing */
     --padding-inline: 1rem;
+}
+
+/* Strict 3-Color Enforcement for Bootstrap utilities */
+.text-muted {
+    color: inherit !important;
+    opacity: 0.75 !important;
+}
+
+.bg-white {
+    background-color: var(--bg-color) !important;
+}
+
+.bg-light {
+    background-color: var(--secondary-color) !important;
+}
+
+.bg-secondary {
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+}
+
+.bg-dark {
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+}
+
+.text-black,
+.text-dark {
+    color: var(--text-color) !important;
+}
+
+.border-light,
+.border-secondary,
+.border-dark,
+.border {
+    border-color: var(--border-color) !important;
+}
+
+/* Component Contextual Colors */
+.card {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+.table {
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+.table> :not(caption)>*>* {
+    background-color: transparent !important;
+    color: inherit !important;
+    border-bottom-color: var(--border-color) !important;
+}
+
+.form-control,
+.form-select {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-color) !important;
+    opacity: 0.5 !important;
 }
 
 [dir="rtl"] {
@@ -34,7 +100,12 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     color: var(--primary-color);
@@ -54,18 +125,90 @@ a:hover {
 .btn-primary {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
     padding: 0.75rem 1.5rem;
+    height: 48px;
+    /* Force consistent height */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-weight: 600;
-    border-radius: 0; /* Craftsman style: sharp edges */
+    border-radius: 0 !important;
+    /* Craftsman style: sharp edges */
     transition: var(--transition);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    color: var(--secondary-color) !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.3);
+}
+
+.btn-outline-primary {
+    background-color: transparent !important;
+    border: 1px solid var(--accent-color) !important;
+    color: var(--accent-color) !important;
+    padding: 0.75rem 1.5rem;
+    height: 48px;
+    /* Sync with primary */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 0 !important;
+    transition: var(--transition);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--accent-color) !important;
+    color: var(--secondary-color) !important;
+    transform: translateY(-2px);
+}
+
+/* Dropdown Customization */
+.dropdown-menu {
+    border-radius: 0 !important;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    padding: 0;
+    margin-top: 0;
+}
+
+.dropdown-item {
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.dropdown-item:hover {
+    background: var(--accent-color);
+    color: var(--secondary-color);
+}
+
+.dropdown-divider {
+    margin: 0;
+    border-color: var(--border-color);
+    opacity: 0.1;
+}
+
+.btn-link {
+    color: var(--primary-color) !important;
+    text-decoration: none;
+}
+
+.btn-link i {
+    color: var(--primary-color) !important;
+}
+
+.btn-link:hover,
+.btn-link:hover i {
+    color: var(--accent-color) !important;
 }
 
 /* Before/After Slider */
@@ -144,7 +287,7 @@ a:hover {
 
 .progress-item {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .progress-item::before {
@@ -185,11 +328,11 @@ a:hover {
 
 /* Sections */
 section {
-    padding: 5rem 0;
+    padding: 3.5rem 0;
 }
 
 .section-title {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     position: relative;
 }
 
@@ -202,14 +345,163 @@ section {
     margin-top: 1rem;
 }
 
-/* Responsive Overrides */
+/* Responsive Overrides & 1100px Breakpoint */
 @media (max-width: 1100px) {
     .nav-desktop {
-        display: none;
+        display: none !important;
+    }
+
+    .navbar-toggler {
+        display: block !important;
+    }
+
+    /* Mobile Offcanvas Enhancements */
+    .offcanvas .offcanvas-body {
+        padding: 2rem 1.5rem;
+    }
+
+    .offcanvas .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .offcanvas .navbar-nav .nav-link {
+        padding: 0.75rem 0 !important;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Fix mobile dropdown flow & indentation */
+    .offcanvas .dropdown-menu {
+        position: static !important;
+        float: none;
+        background: transparent;
+        border: 0 !important;
+        padding-left: 1.25rem !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        box-shadow: none !important;
+        width: 100%;
+    }
+
+    .offcanvas .dropdown-item,
+    .offcanvas .dropdown-menu .nav-link {
+        padding: 0.5rem 0 !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        font-size: 0.95rem !important;
+        opacity: 0.8;
+        border-bottom: 0 !important;
+    }
+
+    .offcanvas .dropdown-item:hover,
+    .offcanvas .dropdown-menu .nav-link:hover {
+        background: transparent !important;
+        color: var(--accent-color) !important;
+        opacity: 1;
+    }
+
+    .nav-btn-desktop {
+        display: none !important;
     }
 }
+
 @media (min-width: 1101px) {
     .navbar-toggler {
-        display: none;
+        display: none !important;
     }
+
+    .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        flex-grow: 1;
+    }
+
+    .nav-desktop {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-desktop .nav-link {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    .nav-btn-desktop {
+        display: inline-flex !important;
+    }
+
+    /* Restoration of Desktop Dropdown: Hover effect & Absolute position */
+    .nav-item.dropdown:hover>.dropdown-menu {
+        display: block !important;
+        margin-top: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar-nav .dropdown-menu {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        min-width: 100px;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        /* Force override of Popper.js dynamic positioning */
+        transform: translate3d(0, 5px, 0) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .nav-item.dropdown:hover>.dropdown-menu {
+        transform: translate3d(0, 0, 0) !important;
+    }
+
+    .navbar {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+    /* Ensure the container inside navbar remains a flexbox */
+    .navbar>.container {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+}
+
+/* Footer Styling & Hover Effects */
+.footer {
+    background: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer a.text-muted {
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer a.text-muted:hover {
+    color: var(--accent-color) !important;
+    transform: translateX(5px);
+}
+
+.footer .bi {
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.footer .bi:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.footer .input-group .btn-dark:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
 }

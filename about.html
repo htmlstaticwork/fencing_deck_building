@@ -13,17 +13,35 @@
     <link rel="stylesheet" href="assets/css/rtl.css">
 </head>
 <body>
-    <header class="navbar navbar-expand-lg sticky-top">
+    <header class="navbar  sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="assets/images/logo.svg" alt="IronBark Outdoors" height="45"></a>
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/logo.svg" alt="IronBark Outdoors" height="45">
+            </a>
+            
             <div class="d-flex align-items-center order-lg-3">
-                <button class="btn btn-link theme-toggle p-2"><i class="bi bi-moon fs-5"></i></button>
-                <button class="btn btn-link rtl-toggle p-2 me-2"><i class="bi bi-translate fs-5"></i></button>
-                <a href="contact.html" class="btn btn-primary d-none d-lg-inline-block">Get a Quote</a>
+                <button class="btn btn-link theme-toggle p-2" aria-label="Toggle Theme">
+                    <i class="bi bi-moon fs-5"></i>
+                </button>
+                <button class="btn btn-link rtl-toggle p-2 me-2" aria-label="Toggle Direction">
+                    <i class="bi bi-translate fs-5"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline-primary nav-btn-desktop me-2">Login</a>
+                <a href="dashboard.html" class="btn btn-primary nav-btn-desktop">Dashboard</a>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#navCanvas">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            <div class="collapse navbar-collapse justify-content-center">
+            
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav nav-desktop">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">Home</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html">Modern Showcase</a></li>
+                            <li><a class="dropdown-item" href="home-2.html">Project Catalog</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="about.html">Our Crew</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
@@ -34,28 +52,54 @@
         </div>
     </header>
 
+    <!-- Offcanvas for Mobile -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="navCanvas">
+        <div class="offcanvas-header border-bottom">
+            
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">Home</a>
+                    <ul class="dropdown-menu border-0 bg-transparent ps-3">
+                        <li><a class="nav-link border-0" href="index.html">Modern Showcase</a></li>
+                        <li><a class="nav-link border-0" href="home-2.html">Project Catalog</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about.html">Our Crew</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item mt-3"><a href="login.html" class="btn btn-outline-dark w-100">Login</a></li>
+                <li class="nav-item mt-2"><a href="dashboard.html" class="btn btn-primary w-100">Dashboard</a></li>
+            </ul>
+        </div>
+    </div>
+
     <main>
         <!-- Section 1: Company Story Timeline -->
         <section class="about-hero">
-            <div class="container text-center mb-5 pb-5">
+            <div class="container text-center mb-4 pb-4">
                 <h1 class="display-3 fw-bold">Built to Last Ten Years.<br>Thinking for the Next Fifty.</h1>
             </div>
-            <div class="container py-5 border-top border-bottom border-secondary border-opacity-25">
+            <div class="container py-4 border-top border-bottom border-dark border-opacity-25">
                 <div class="row text-center row-cols-2 row-cols-md-4 g-4">
-                    <div class="col"><div class="h1 fw-bold mb-0">2014</div><p class="small text-muted text-uppercase">Founded</p></div>
-                    <div class="col"><div class="h1 fw-bold mb-0">1.2K+</div><p class="small text-muted text-uppercase">Projects Built</p></div>
-                    <div class="col"><div class="h1 fw-bold mb-0">3</div><p class="small text-muted text-uppercase">Dedicated Crews</p></div>
-                    <div class="col"><div class="h1 fw-bold mb-0">100%</div><p class="small text-muted text-uppercase">Craftsmanship Guarantee</p></div>
+                    <div class="col"><div class="h1 fw-bold mb-0">2014</div><p class="small opacity-75 text-uppercase">Founded</p></div>
+                    <div class="col"><div class="h1 fw-bold mb-0">1.2K+</div><p class="small opacity-75 text-uppercase">Projects Built</p></div>
+                    <div class="col"><div class="h1 fw-bold mb-0">3</div><p class="small opacity-75 text-uppercase">Dedicated Crews</p></div>
+                    <div class="col"><div class="h1 fw-bold mb-0">100%</div><p class="small opacity-75 text-uppercase">Craftsmanship Guarantee</p></div>
                 </div>
             </div>
         </section>
 
         <!-- Section 2: Values -->
-        <section class="values bg-light">
+        <section class="values">
             <div class="container">
                 <div class="row g-4">
-                    <div class="col-md-6"><div class="card p-5 h-100 border-0 shadow-sm rounded-0"><h3>Honest Craftsmanship</h3><p class="text-muted">No shortcuts. No inferior lumber. Every board is hand-selected and every post is set for life.</p></div></div>
-                    <div class="col-md-6"><div class="card p-5 h-100 border-0 shadow-sm rounded-0"><h3>Radical Transparency</h3><p class="text-muted">You see our material costs and project timelines upfront. No hidden fees or surprise upcharges.</p></div></div>
+                    <div class="col-md-6"><div class="card p-5 h-100 border-0 shadow-sm rounded-0"><h3>Honest Craftsmanship</h3><p>No shortcuts. No inferior lumber. Every board is hand-selected and every post is set for life.</p></div></div>
+                    <div class="col-md-6"><div class="card p-5 h-100 border-0 shadow-sm rounded-0"><h3>Radical Transparency</h3><p>You see our material costs and project timelines upfront. No hidden fees or surprise upcharges.</p></div></div>
                 </div>
             </div>
         </section>
@@ -63,40 +107,113 @@
         <!-- Section 3: Crew Intro -->
         <section class="crew">
             <div class="container">
-                <h2 class="section-title mb-5">Meet the Builders</h2>
+                <h2 class="section-title mb-4">Meet the Builders</h2>
                 <div class="row g-5">
                     <div class="col-md-3">
-                        <img src="https://ui-avatars.com/api/?name=David+R&background=333&color=fff&size=512" class="img-fluid grayscale filter-dark mb-3 grayscale rounded-0" alt="Lead">
+                        <img src="https://ui-avatars.com/api/?name=David+R&background=000000&color=ffffff&size=512" class="img-fluid grayscale filter-dark mb-3 grayscale rounded-0" alt="Lead">
                         <h6>David Ross</h6>
-                        <p class="small text-muted text-uppercase">Founder & Lead Designer</p>
+                        <p class="small opacity-75 text-uppercase">Founder & Lead Designer</p>
                     </div>
                     <div class="col-md-3">
-                        <img src="https://ui-avatars.com/api/?name=Mike+M&background=333&color=fff&size=512" class="img-fluid grayscale filter-dark mb-3 grayscale rounded-0" alt="Builder">
+                        <img src="https://ui-avatars.com/api/?name=Mike+M&background=000000&color=ffffff&size=512" class="img-fluid grayscale filter-dark mb-3 grayscale rounded-0" alt="Builder">
                         <h6>Mike Mercer</h6>
-                        <p class="small text-muted text-uppercase">Head of Construction</p>
+                        <p class="small opacity-75 text-uppercase">Head of Construction</p>
                     </div>
                     <div class="col-md-3">
-                        <img src="https://ui-avatars.com/api/?name=Sarah+K&background=333&color=fff&size=512" class="img-fluid grayscale filter-dark mb-3 grayscale rounded-0" alt="Support">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+K&background=000000&color=ffffff&size=512" class="img-fluid grayscale filter-dark mb-3 grayscale rounded-0" alt="Support">
                         <h6>Sarah Kim</h6>
-                        <p class="small text-muted text-uppercase">Client Operations</p>
+                        <p class="small opacity-75 text-uppercase">Client Operations</p>
                     </div>
                     <div class="col-md-3">
-                        <img src="https://ui-avatars.com/api/?name=Tom+B&background=333&color=fff&size=512" class="img-fluid grayscale filter-dark mb-3 grayscale rounded-0" alt="Crew">
+                        <img src="https://ui-avatars.com/api/?name=Tom+B&background=000000&color=ffffff&size=512" class="img-fluid grayscale filter-dark mb-3 grayscale rounded-0" alt="Crew">
                         <h6>Tom Baxter</h6>
-                        <p class="small text-muted text-uppercase">Senior Builder</p>
+                        <p class="small opacity-75 text-uppercase">Senior Builder</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 4: Signature Projects Gallery -->
+        <section class="gallery bg-light border-top border-bottom">
+            <div class="container">
+                <h2 class="section-title mb-4">Signature Projects</h2>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://placehold.co/800x800/000000/ffffff?text=Modern+Hoziron+Fence" class="img-fluid w-100 grayscale transition-all filter-dark" alt="Project 1">
+                            <div class="position-absolute bottom-0 start-0 p-3 bg-dark text-white opacity-0 hover-opacity-100 transition-all w-100">
+                                <p class="small mb-0 fw-bold">Modern Horizon Fence</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://placehold.co/800x800/000000/ffffff?text=Tiered+Cedar+Deck" class="img-fluid w-100 grayscale transition-all filter-dark" alt="Project 2">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://placehold.co/800x800/000000/ffffff?text=Automated+Pergola" class="img-fluid w-100 grayscale transition-all filter-dark" alt="Project 3">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer py-5 border-top bg-dark text-white">
-        <div class="container text-center">
-            <img src="assets/images/logo.svg" alt="IronBark" height="35" class="mb-5 filter-white">
-            <p class="small text-muted mb-0">© 2026 IronBark Outdoors. Handcrafted in the USA.</p>
+    <!-- Footer -->
+    <footer class="footer py-4 border-top">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <img src="assets/images/logo.svg" alt="IronBark Outdoors" height="35" class="mb-4">
+                    <p class="text-muted small">Premium outdoor structures built for craftsmanship and longevity. Serving the greater metro area since 2014.</p>
+                    <div class="d-flex gap-3 fs-5 mt-4">
+                        <a href="#" class="text-muted"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-4">Project Types</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted small d-block mb-2">Privacy Fences</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Composite Decks</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Cedar Arbors</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Industrial Gates</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-4">Support</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted small d-block mb-2">Warranty Info</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Material Care</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Financing</a></li>
+                        <li><a href="#" class="text-muted small d-block mb-2">Customer Login</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-4">Newsletter</h6>
+                    <p class="text-muted small mb-3">Get seasonal maintenance tips and project inspiration.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control form-control-sm rounded-0" placeholder="Email">
+                        <button class="btn btn-dark btn-sm rounded-0">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <p class="small text-muted mb-0">© 2026 IronBark Outdoors. All rights reserved.</p>
+                <div class="mt-3 mt-md-0">
+                    <a href="#" class="btn btn-link btn-sm p-0 me-3 text-muted"><i class="bi bi-arrow-up-circle fs-4"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
+

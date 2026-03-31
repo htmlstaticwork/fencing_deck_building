@@ -8,30 +8,54 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
     <style>
-        .auth-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #F9F9F9; }
-        .auth-card { width: 400px; padding: 3rem; background: #FFF; border: 1px solid #E0E0E0; }
-        .dark-mode .auth-container { background: #1A1A1A; }
-        .dark-mode .auth-card { background: #1E1E1E; border-color: #333; }
+        .auth-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: transparent; }
+        .auth-card { width: 400px; padding: 3rem; background: var(--bg-color); border: 1px solid var(--border-color); }
+        .floating-controls { position: fixed; top: 1rem; right: 1rem; z-index: 1000; }
+        [dir="rtl"] .floating-controls { right: auto; left: 1rem; }
     </style>
 </head>
-<body class="auth-wrapper">
+<body>
+    <div class="floating-controls d-flex gap-2">
+        <button class="btn btn-link theme-toggle p-2" aria-label="Toggle Theme">
+            <i class="bi bi-moon fs-4"></i>
+        </button>
+        <button class="btn btn-link rtl-toggle p-2" aria-label="Toggle Direction">
+            <i class="bi bi-translate fs-4"></i>
+        </button>
+    </div>
     <div class="auth-container">
         <div class="auth-card">
-            <div class="text-center mb-5"><a href="index.html"><img src="assets/images/logo.svg" alt="Logo" height="40"></a></div>
-            <h4 class="mb-4">Homeowner Portal</h4>
+            <div class="text-center mb-4"><a href="index.html"><img src="assets/images/logo.svg" alt="Logo" height="40"></a></div>
+            <h4 class="mb-4 text-center">Homeowner Portal</h4>
             <form class="needs-validation" novalidate>
-                <div class="mb-3"><label class="form-label small fw-bold">EMAIL</label><input type="email" class="form-control rounded-0" required></div>
-                <div class="mb-4"><label class="form-label small fw-bold">PASSWORD</label><input type="password" class="form-control rounded-0" required></div>
-                <div class="mb-4 d-flex justify-content-between align-items-center">
+                <div class="mb-2"><label class="form-label small fw-bold">EMAIL</label><input type="email" class="form-control rounded-0" required></div>
+                <div class="mb-3"><label class="form-label small fw-bold">PASSWORD</label><input type="password" class="form-control rounded-0" required></div>
+                <div class="mb-3 d-flex justify-content-between align-items-center">
                     <div class="form-check"><input type="checkbox" class="form-check-input" id="remember"><label class="form-check-label small" for="remember">Remember me</label></div>
                     <a href="#" class="text-accent small">Forgot?</a>
                 </div>
-                <button type="submit" class="btn btn-primary w-100 rounded-0 py-3 mb-4" onclick="window.location.href='dashboard.html'; return false;">Login to Dashboard</button>
-                <div class="text-center small text-muted">Don't have an account? <a href="register.html" class="text-accent fw-bold text-decoration-none">Register</a></div>
+                <button type="submit" class="btn btn-primary w-100 rounded-0 py-3 mb-3" onclick="window.location.href='dashboard.html'; return false;">Login to Dashboard</button>
+                <div class="text-center small text-muted mb-3">Don't have an account? <a href="register.html" class="text-accent fw-bold text-decoration-none">Register</a></div>
+                <div class="border-top pt-3">
+                    <p class="text-center small text-muted mb-2 text-uppercase fw-bold" style="letter-spacing: 1px;">Or Continue With</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-outline-dark rounded-0 px-4 py-2 flex-grow-1"><i class="bi bi-google me-2"></i>Google</button>
+                        <button type="button" class="btn btn-outline-dark rounded-0 px-4 py-2 flex-grow-1"><i class="bi bi-facebook me-2"></i>Facebook</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
+    <!-- Login Section handled above by auth-container -->
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
+
