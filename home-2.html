@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outdoor Living Catalog | IronBark Outdoors</title>
@@ -166,18 +167,19 @@
         <section class="service-map">
             <div class="container">
                 <h2 class="section-title text-center mx-auto mb-4">Areas We Build</h2>
-                <div class="text-center p-5 border border-dark bg-white shadow-sm">
-                    <!-- Stylized SVG Map Placeholder -->
-                    <svg viewBox="0 0 400 300" class="img-fluid w-50 mx-auto mb-4 opacity-50">
-                        <path d="M50 50 Q100 20, 150 50 T250 50 T350 50 V250 Q300 280, 200 250 T50 250 Z" fill="var(--accent-color)" opacity="0.1" />
-                        <circle cx="200" cy="150" r="10" fill="var(--accent-color)" />
-                        <text x="220" y="155" fill="black" font-family="sans-serif" font-size="12">HQ: Metro North</text>
-                    </svg>
-                    <div class="row row-cols-2 row-cols-md-4 g-4 mt-4">
-                        <div class="col fw-bold text-uppercase small">Lincoln Park</div>
-                        <div class="col fw-bold text-uppercase small">Oak Park</div>
-                        <div class="col fw-bold text-uppercase small">Evanston</div>
-                        <div class="col fw-bold text-uppercase small">Wilmette</div>
+                <div class="position-relative p-0 border border-dark bg-white shadow-sm overflow-hidden" style="min-height: 400px;">
+                    <img src="assets/images/service_fence.png" class="position-absolute w-100 h-100 object-fit-cover opacity-25" alt="Service Area">
+                    <div class="position-relative z-index-2 p-5 text-center">
+                        <div class="row row-cols-2 row-cols-md-4 g-4 mt-2">
+                            <div class="col"><h5 class="fw-bold mb-1">Lincoln Park</h5><p class="small opacity-75">North Side</p></div>
+                            <div class="col"><h5 class="fw-bold mb-1">Oak Park</h5><p class="small opacity-75">West Suburbs</p></div>
+                            <div class="col"><h5 class="fw-bold mb-1">Evanston</h5><p class="small opacity-75">North Shore</p></div>
+                            <div class="col"><h5 class="fw-bold mb-1">Wilmette</h5><p class="small opacity-75">Lakefront</p></div>
+                        </div>
+                        <div class="mt-5">
+                            <p class="lead">Built where quality matters. Our crew covers a 30-mile radius from our Metro North headquarters.</p>
+                            <a href="contact.html" class="btn btn-outline-dark rounded-0 px-4">Check My Zip Code</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -192,7 +194,8 @@
                 </div>
                 <div class="row g-4">
                     <div class="col-md-6">
-                        <div class="card h-100 border border-dark rounded-0">
+                        <div class="card h-100 border border-dark rounded-0 overflow-hidden">
+                            <img src="assets/images/material_composite.png" class="img-fluid border-bottom border-dark" alt="Composite" style="height: 200px; object-fit: cover;">
                             <div class="card-body p-4">
                                 <span class="small opacity-75 text-uppercase mb-2 d-block">Materials</span>
                                 <h4 class="mb-3">Composite vs. Cedar: The 2026 Comparison</h4>
@@ -202,7 +205,8 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card h-100 border border-dark rounded-0">
+                        <div class="card h-100 border border-dark rounded-0 overflow-hidden">
+                            <img src="assets/images/service_deck.png" class="img-fluid border-bottom border-dark" alt="Staining" style="height: 200px; object-fit: cover;">
                             <div class="card-body p-4">
                                 <span class="small opacity-75 text-uppercase mb-2 d-block">Maintenance</span>
                                 <h4 class="mb-3">How to Stain Your Deck Like a Professional</h4>
