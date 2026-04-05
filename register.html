@@ -36,8 +36,24 @@
                     <div class="col-12"><label class="form-label small fw-bold">FULL NAME</label><input type="text" class="form-control rounded-0" required></div>
                     <div class="col-12"><label class="form-label small fw-bold">EMAIL</label><input type="email" class="form-control rounded-0" required></div>
                     <div class="col-12"><label class="form-label small fw-bold">PROJECT ID (OPTIONAL)</label><input type="text" class="form-control rounded-0" placeholder="e.g. #IB-9921"></div>
-                    <div class="col-12"><label class="form-label small fw-bold">PASSWORD</label><input type="password" class="form-control rounded-0" required></div>
-                    <div class="col-12"><label class="form-label small fw-bold">CONFIRM PASSWORD</label><input type="password" class="form-control rounded-0" required></div>
+                    <div class="col-12">
+                        <label class="form-label small fw-bold">PASSWORD</label>
+                        <div class="input-group">
+                            <input id="registerPassword" type="password" class="form-control rounded-0" required>
+                            <button class="btn btn-outline-secondary rounded-0 password-toggle" type="button" aria-label="Show password" aria-pressed="false">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label small fw-bold">CONFIRM PASSWORD</label>
+                        <div class="input-group">
+                            <input id="registerConfirmPassword" type="password" class="form-control rounded-0" required>
+                            <button class="btn btn-outline-secondary rounded-0 password-toggle" type="button" aria-label="Show password" aria-pressed="false">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                    </div>
                     <div class="col-12"><button type="submit" class="btn btn-primary w-100 rounded-0 py-3 mt-2">Register Account</button></div>
                 </div>
                 <div class="text-center mt-3 small text-muted mb-3">Already have an account? <a href="login.html" class="text-accent fw-bold text-decoration-none">Login</a></div>

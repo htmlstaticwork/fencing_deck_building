@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initDashboardTabs() {
     const tabs = document.querySelectorAll('.dashboard-nav-link');
     const sections = document.querySelectorAll('.dashboard-section');
+    const sidebar = document.getElementById('dashboardSidebar');
+    const isMobileLayout = () => window.matchMedia('(max-width: 1100px)').matches;
     
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
@@ -25,6 +27,10 @@ function initDashboardTabs() {
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
                 targetSection.classList.remove('d-none');
+            }
+
+            if (sidebar && isMobileLayout()) {
+                sidebar.classList.remove('show');
             }
         });
     });

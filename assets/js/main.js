@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initRTL();
     initBASliders();
     initFormValidation();
+    initPasswordToggles();
+    initActiveNav();
 });
 
 /* Theme Toggle Support */
@@ -125,4 +127,92 @@ function initFormValidation() {
             form.classList.add('was-validated');
         }, false);
     });
+}
+
+function initPasswordToggles() {
+    const toggles = document.querySelectorAll('.password-toggle');
+
+    toggles.forEach(toggle => {
+        const group = toggle.closest('.input-group');
+        const input = group ? group.querySelector('input') : null;
+
+        if (!input || input.type !== 'password') return;
+
+        toggle.addEventListener('click', () => {
+            const willShow = input.type === 'password';
+            input.type = willShow ? 'text' : 'password';
+
+            toggle.setAttribute('aria-pressed', String(willShow));
+            toggle.setAttribute('aria-label', willShow ? 'Hide password' : 'Show password');
+
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                if (willShow) {
+                    icon.classList.replace('bi-eye', 'bi-eye-slash');
+                } else {
+                    icon.classList.replace('bi-eye-slash', 'bi-eye');
+                }
+            }
+        });
+    });
+}
+
+function initActiveNav() {
+    const currentFile = getCurrentPageFileName();
+    if (!currentFile) return;
+
+    const linkSelector = 'a.nav-link[href], a.dropdown-item[href]';
+    const links = document.querySelectorAll(linkSelector);
+
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        const normalizedHref = normalizePageHref(href);
+        if (!normalizedHref) return;
+
+        if (normalizedHref === currentFile) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+        }
+    });
+
+    const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+    dropdowns.forEach(dropdown => {
+        const activeChild = dropdown.querySelector('.dropdown-menu a.active');
+        if (!activeChild) return;
+
+        const toggle = dropdown.querySelector(':scope > a.nav-link.dropdown-toggle');
+        if (!toggle) return;
+
+        toggle.classList.add('active');
+        if (!toggle.getAttribute('aria-current')) {
+            toggle.setAttribute('aria-current', 'page');
+        }
+    });
+}
+
+function getCurrentPageFileName() {
+    const pathname = window.location.pathname || '';
+    const rawFile = pathname.split('/').filter(Boolean).pop() || '';
+    const file = rawFile ? rawFile : 'index.html';
+
+    const normalized = normalizePageHref(file);
+    return normalized || 'index.html';
+}
+
+function normalizePageHref(href) {
+    const trimmed = String(href).trim();
+    if (!trimmed) return null;
+    if (trimmed === '#') return null;
+    if (trimmed.startsWith('#')) return null;
+    if (/^(https?:)?\/\//i.test(trimmed)) return null;
+    if (/^(mailto:|tel:)/i.test(trimmed)) return null;
+
+    const withoutHash = trimmed.split('#')[0];
+    const withoutQuery = withoutHash.split('?')[0];
+    const lastSegment = withoutQuery.split('/').filter(Boolean).pop() || '';
+    const file = lastSegment || 'index.html';
+
+    return file.toLowerCase();
 }

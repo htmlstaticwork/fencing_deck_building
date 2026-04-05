@@ -59,3 +59,43 @@ body.dark-mode .btn-outline-dark:hover {
     background-color: var(--primary-color) !important;
     color: var(--secondary-color) !important;
 }
+
+body.dark-mode .bg-dark,
+body.dark-mode .bg-secondary {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+body.dark-mode .bg-dark h1,
+body.dark-mode .bg-dark h2,
+body.dark-mode .bg-dark h3,
+body.dark-mode .bg-dark h4,
+body.dark-mode .bg-dark h5,
+body.dark-mode .bg-dark h6,
+body.dark-mode .bg-secondary h1,
+body.dark-mode .bg-secondary h2,
+body.dark-mode .bg-secondary h3,
+body.dark-mode .bg-secondary h4,
+body.dark-mode .bg-secondary h5,
+body.dark-mode .bg-secondary h6 {
+    color: var(--text-color) !important;
+}
+
+body.dark-mode .accordion {
+    --bs-accordion-color: var(--text-color);
+    --bs-accordion-btn-color: var(--text-color);
+    --bs-accordion-border-color: var(--border-color);
+    --bs-accordion-active-color: var(--text-color);
+    --bs-accordion-active-bg: transparent;
+    --bs-accordion-btn-focus-border-color: var(--border-color);
+    --bs-accordion-btn-focus-box-shadow: none;
+}
+
+body.dark-mode .accordion-button,
+body.dark-mode .accordion-body {
+    color: var(--text-color) !important;
+}
+
+body.dark-mode .accordion-button::after {
+    filter: invert(1);
+}
