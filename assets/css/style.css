@@ -20,58 +20,68 @@
     --padding-inline: 1rem;
 }
 
-/* Strict 3-Color Enforcement for Bootstrap utilities */
-.text-muted {
-    color: inherit !important;
-    opacity: 0.75 !important;
-}
-
-.bg-white {
-    background-color: var(--bg-color) !important;
-}
-
-.bg-light {
-    background-color: var(--secondary-color) !important;
-}
-
-.bg-secondary {
-    background-color: var(--primary-color) !important;
-    color: var(--secondary-color) !important;
-}
-
-.bg-dark {
-    background-color: var(--primary-color) !important;
-    color: var(--secondary-color) !important;
-}
-
-.text-black,
-.text-dark {
-    color: var(--text-color) !important;
-}
-
-.border-light,
-.border-secondary,
-.border-dark,
-.border {
-    border-color: var(--border-color) !important;
-}
 
 /* Component Contextual Colors */
+/* Component Contextual Colors */
 .card {
-    background-color: var(--card-bg) !important;
-    color: var(--text-color) !important;
-    border-color: var(--border-color) !important;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+/* Cards that explicitly stay white for 'blueprint/paper' aesthetic */
+.card-blueprint {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-blueprint h1,
+.card-blueprint h2,
+.card-blueprint h3,
+.card-blueprint h4,
+.card-blueprint h5,
+.card-blueprint h6,
+.card-blueprint .text-black,
+.card-blueprint .text-dark,
+.card-blueprint .small.text-muted {
+    color: #000000 !important;
+}
+
+/* Specific Badge style for Blueprint cards - stays dark */
+.card-blueprint .badge.border-dark {
+    border-color: #000000 !important;
+    color: #000000 !important;
+    background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
 .table {
-    color: var(--text-color) !important;
-    border-color: var(--border-color) !important;
+    color: var(--text-color);
+    border-color: var(--border-color);
 }
 
 .table> :not(caption)>*>* {
     background-color: transparent !important;
     color: inherit !important;
     border-bottom-color: var(--border-color) !important;
+}
+
+.table-responsive {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive .table {
+    min-width: 900px !important;
+    width: auto !important;
+    margin-bottom: 0 !important;
+}
+
+.table-responsive .table th,
+.table-responsive .table td {
+    white-space: nowrap; /* Prevent text wrapping and column squeezing */
 }
 
 .form-control,
@@ -182,6 +192,26 @@ a:hover {
 
 .btn-outline-primary:hover {
     background-color: var(--accent-color) !important;
+    color: var(--secondary-color) !important;
+    transform: translateY(-2px);
+}
+
+.btn-outline-dark {
+    background-color: transparent !important;
+    border: 1px solid var(--primary-color) !important;
+    color: var(--primary-color) !important;
+    padding: 0.75rem 1.5rem;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 0 !important;
+    transition: var(--transition);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--primary-color) !important;
     color: var(--secondary-color) !important;
     transform: translateY(-2px);
 }
@@ -585,7 +615,7 @@ section {
 }
 
 .icon-img-accent {
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .service-card-media {
@@ -621,14 +651,25 @@ section {
 
 .hover-lift:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
 }
 
-.ls-1 { letter-spacing: 1px !important; }
-.ls-2 { letter-spacing: 2px !important; }
-.letter-spacing-1 { letter-spacing: 1px !important; }
+.ls-1 {
+    letter-spacing: 1px !important;
+}
 
-.z-index-2 { z-index: 2; position: relative; }
+.ls-2 {
+    letter-spacing: 2px !important;
+}
+
+.letter-spacing-1 {
+    letter-spacing: 1px !important;
+}
+
+.z-index-2 {
+    z-index: 2;
+    position: relative;
+}
 
 .transition-all {
     transition: all 0.3s ease;
@@ -638,5 +679,100 @@ section {
     object-fit: cover !important;
 }
 
-.opacity-25 { opacity: 0.25 !important; }
-.opacity-50 { opacity: 0.5 !important; }
+
+.opacity-25 {
+    opacity: 0.25 !important;
+}
+
+.opacity-50 {
+    opacity: 0.5 !important;
+}
+
+/* --- Badge & Accent Utility --- */
+.bg-accent {
+    background-color: var(--accent-color) !important;
+    color: #FFFFFF !important;
+    /* Force high contrast white on green background */
+}
+
+.badge {
+    padding: 0.5em 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 0;
+    /* Match sharp craftsman theme */
+}
+
+
+/* Strict 3-Color Enforcement for Bootstrap utilities */
+.text-muted {
+    color: inherit !important;
+    opacity: 0.75 !important;
+}
+
+.bg-white {
+    background-color: var(--bg-color) !important;
+}
+
+.bg-light {
+    background-color: var(--secondary-color) !important;
+}
+
+.bg-secondary {
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+}
+
+.bg-dark,
+.card.bg-dark {
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+}
+
+.text-black,
+.text-dark {
+    color: var(--text-color) !important;
+}
+
+.border-light,
+.border-secondary,
+.border-dark,
+.border {
+    border-color: var(--border-color) !important;
+}
+
+/* --- Home 2 Compact View --- */
+.home-2-compact-view section {
+    padding: 1rem 0 !important;
+    /* Reduced from 3.5rem */
+}
+
+.home-2-compact-view .section-title {
+    margin-bottom: 0.75rem !important;
+    /* Reduced from 2rem */
+}
+
+.home-2-compact-view .section-title::after {
+    margin-top: 0.5rem !important;
+    /* Reduced from 1rem */
+}
+
+.home-2-compact-view .accordion-item {
+    padding: 0.5rem 0 !important;
+}
+
+.home-2-compact-view .card-body {
+    padding: 1rem !important;
+}
+
+.home-2-compact-view .cta {
+    padding: 1.5rem 0 !important;
+}
+
+.home-2-compact-view footer {
+    padding: 1rem 0 !important;
+}
+
+.home-2-compact-view h1.display-4 {
+    margin-bottom: 0.75rem;
+}

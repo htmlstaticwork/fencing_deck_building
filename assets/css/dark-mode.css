@@ -99,3 +99,110 @@ body.dark-mode .accordion-body {
 body.dark-mode .accordion-button::after {
     filter: invert(1);
 }
+
+/* Ensure absolute visibility for badges and dark text in dark mode */
+body.dark-mode .text-black,
+body.dark-mode .text-dark {
+    color: var(--text-color) !important;
+}
+
+body.dark-mode .border-dark {
+    border-color: var(--border-color) !important;
+}
+
+body.dark-mode .badge.border-dark {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Subtle background for visibility */
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Strictly enforce black text and borders for blueprint cards in dark mode */
+body.dark-mode .card-blueprint,
+body.dark-mode .card-blueprint h1,
+body.dark-mode .card-blueprint h2,
+body.dark-mode .card-blueprint h3,
+body.dark-mode .card-blueprint h4,
+body.dark-mode .card-blueprint h5,
+body.dark-mode .card-blueprint h6,
+body.dark-mode .card-blueprint .text-black,
+body.dark-mode .card-blueprint .text-dark,
+body.dark-mode .card-blueprint .badge.border-dark,
+body.dark-mode .card-blueprint .border-dark,
+body.dark-mode .card-blueprint .border {
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+body.dark-mode .card-blueprint .badge.border-dark {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Ensure Download buttons inside blueprint cards stay black in dark mode */
+body.dark-mode .card-blueprint .btn-outline-dark {
+    border-color: #000000 !important;
+    color: #000000 !important;
+}
+
+body.dark-mode .card-blueprint .btn-outline-dark:hover {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+}
+
+/* Offcanvas & Toggler Visibility in Dark Mode */
+body.dark-mode .offcanvas {
+    background-color: var(--bg-color) !important;
+    border-left: 1px solid var(--border-color);
+}
+
+body.dark-mode .offcanvas-header {
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+body.dark-mode .navbar-toggler {
+    border-color: var(--border-color) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .navbar-toggler-icon {
+    filter: invert(1) brightness(2);
+}
+
+body.dark-mode .btn-close {
+    filter: invert(1) grayscale(100) brightness(200%);
+}
+
+/* Dashboard Toggler specifically */
+body.dark-mode .dashboard-toggler {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .dashboard-toggler i {
+    color: #FFFFFF !important;
+}
+
+/* Mobile Nav Link Borders in Dark Mode */
+@media (max-width: 1100px) {
+    body.dark-mode .offcanvas .navbar-nav .nav-link {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+}
+
+/* Table Visibility Fixes for Dark Mode */
+body.dark-mode .table-light {
+    --bs-table-color: var(--text-color) !important;
+    --bs-table-bg: rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .table > :not(caption) > * > * {
+    color: var(--text-color) !important;
+    background-color: transparent !important;
+}
+
+body.dark-mode .table thead th {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
