@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="icon" type="image/png" href="assets/images/favicon1.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | IronBark Outdoors</title>
@@ -132,11 +132,9 @@
     <div class="dashboard-wrapper">
         <!-- Sidebar -->
         <aside class="sidebar d-flex flex-column" id="dashboardSidebar">
-            <div class="mb-5 px-3">
-                <a href="index.html">
-                    <img src="assets/images/logo.svg" alt="IronBark Outdoors" height="40">
-                </a>
-            </div>
+            <a class="navbar-brand d-flex align-items-center mb-5 px-3" href="index.html">
+                <img src="assets/images/logo.svg" alt="IronBark Outdoors" class="site-logo" height="40">
+            </a>
 
             <nav class="flex-grow-1">
                 <a href="#" class="dashboard-nav-link active" data-section="overview">
@@ -169,10 +167,10 @@
                     </div>
                 </div>
                 <div class="d-flex gap-2">
-                    <button class="btn btn-sm btn-link theme-toggle p-0" title="Toggle Theme"><i
-                            class="bi bi-moon"></i></button>
-                    <button class="btn btn-sm btn-link rtl-toggle p-0" title="Toggle Direction"><i
-                            class="bi bi-translate"></i></button>
+                    <button class="btn btn-outline-primary theme-toggle me-2" aria-label="Toggle Theme">
+                        <i class="bi bi-moon fs-5"></i>
+                    </button>
+                    <button class="btn btn-outline-primary rtl-toggle me-2" aria-label="Toggle Direction">RTL</button>
                     <a href="index.html" class="btn btn-sm btn-link p-0 ms-auto" title="Logout"><i
                             class="bi bi-box-arrow-right"></i></a>
                 </div>

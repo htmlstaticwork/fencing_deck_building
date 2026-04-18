@@ -9,7 +9,7 @@ body.dark-mode {
     --primary-color: #FFFFFF;
     --secondary-color: #000000;
     --card-bg: #000000;
-    --border-color: #FFFFFF;
+    --border-color: rgba(255, 255, 255, 0.2);
 }
 
 body.dark-mode .navbar {
@@ -21,9 +21,6 @@ body.dark-mode .glass {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-body.dark-mode .ba-handle {
-    background: var(--accent-color);
-}
 
 body.dark-mode .progress-track::before {
     background: var(--border-color);

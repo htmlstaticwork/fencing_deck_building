@@ -11,7 +11,7 @@
     --bg-color: #FFFFFF;
     --text-color: #000000;
     --card-bg: #FFFFFF;
-    --border-color: #000000;
+    --border-color: rgba(0, 0, 0, 0.15);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'DM Sans', sans-serif;
@@ -206,7 +206,7 @@ a:hover {
 
 .btn-outline-dark {
     background-color: transparent !important;
-    border: 1px solid var(--primary-color) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
     color: var(--primary-color) !important;
     padding: 0.75rem 1.5rem;
     height: 48px;
@@ -268,6 +268,27 @@ a:hover {
     color: var(--accent-color) !important;
 }
 
+.theme-toggle,
+.rtl-toggle {
+    width: 48px;
+    height: 48px;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-size: 0.875rem !important;
+    letter-spacing: 0.5px;
+}
+
+.rtl-toggle {
+    width: auto !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
 /* Before/After Slider */
 .ba-slider {
     position: relative;
@@ -296,7 +317,7 @@ a:hover {
     bottom: 0;
     left: 50%;
     width: 4px;
-    background: var(--accent-color);
+    background: rgba(var(--accent-rgb), 0.3);
     cursor: ew-resize;
     transform: translateX(-50%);
     z-index: 10;
@@ -310,7 +331,9 @@ a:hover {
     transform: translate(-50%, -50%);
     width: 40px;
     height: 40px;
-    background: var(--accent-color);
+    background: rgba(var(--accent-rgb), 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 4px solid var(--secondary-color);
     border-radius: 50%;
     display: flex;
@@ -324,6 +347,33 @@ a:hover {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .ba-slider {
+        aspect-ratio: 3/4 !important;
+    }
+
+    .hero-section .glass {
+        padding: 1.5rem !important;
+        text-align: center !important;
+    }
+
+    .hero-section h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .hero-section p {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem !important;
+        opacity: 0.9 !important;
+    }
+
+    .hero-section .btn-lg {
+        padding: 0.5rem 1rem !important;
+        font-size: 1rem !important;
+        height: auto !important;
+    }
 }
 
 /* Vertical Progress Bar */
@@ -610,6 +660,12 @@ section {
     object-fit: contain;
     display: inline-block;
     vertical-align: middle;
+}
+
+.site-logo {
+    height: 45px !important;
+    width: auto !important;
+    object-fit: contain;
 }
 
 .icon-img-lg {
