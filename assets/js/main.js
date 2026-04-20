@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFormValidation();
     initPasswordToggles();
     initActiveNav();
+    loadServiceDetails();
 });
 
 /* Theme Toggle Support */
@@ -171,7 +172,7 @@ function initActiveNav() {
         const normalizedHref = normalizePageHref(href);
         if (!normalizedHref) return;
 
-        if (normalizedHref === currentFile) {
+        if (normalizedHref === currentFile || (currentFile === 'service-details.html' && normalizedHref === 'services.html')) {
             link.classList.add('active');
             link.setAttribute('aria-current', 'page');
         }
@@ -216,3 +217,87 @@ function normalizePageHref(href) {
 
     return file.toLowerCase();
 }
+
+/**
+ * Entry point for loading service details on the service-details.html page.
+ */
+function loadServiceDetails() {
+    const page = getCurrentPageFileName();
+    if (page !== 'service-details.html') return;
+
+    // 1. Initial Load from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    let serviceId = urlParams.get('service');
+
+    // 2. Populate Dropdown
+    const select = document.getElementById('service-select');
+    if (select && typeof SERVICES_DATA !== 'undefined') {
+        // Clear and rebuild to avoid duplicates if called multiple times (though not expected here)
+        select.innerHTML = '<option value="">Select Service</option>';
+        Object.keys(SERVICES_DATA).forEach(key => {
+            const service = SERVICES_DATA[key];
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = service.title;
+            if (key === serviceId) option.selected = true;
+            select.appendChild(option);
+        });
+
+        // 3. Add Event Listener for Changes
+        select.addEventListener('change', (e) => {
+            const newId = e.target.value;
+            if (newId) {
+                // Update URL without reload
+                const newUrl = `${window.location.pathname}?service=${newId}`;
+                window.history.pushState({ path: newUrl }, '', newUrl);
+                
+                // Update Page Content
+                updateServicePageContent(newId);
+            }
+        });
+    }
+
+    if (serviceId) {
+        updateServicePageContent(serviceId);
+    }
+}
+
+/**
+ * Updates the DOM elements on the service-details page.
+ */
+function updateServicePageContent(serviceId) {
+    if (typeof SERVICES_DATA === 'undefined') return;
+    
+    const data = SERVICES_DATA[serviceId];
+    if (!data) return;
+
+    // Update Text Content
+    const titleEl = document.getElementById('service-title');
+    const heroDescEl = document.getElementById('service-hero-desc');
+    const longDescEl = document.getElementById('service-long-description');
+    const mainImgEl = document.getElementById('service-main-image');
+
+    if (titleEl) titleEl.textContent = data.title;
+    if (heroDescEl) heroDescEl.textContent = data.shortDesc;
+    if (longDescEl) longDescEl.textContent = data.longDesc;
+    if (mainImgEl) {
+        mainImgEl.src = data.image;
+        mainImgEl.alt = data.title;
+    }
+
+    // Update Features
+    const featuresRow = document.getElementById('service-features-row');
+    if (featuresRow && data.features) {
+        featuresRow.innerHTML = '';
+        data.features.forEach(feature => {
+            const col = document.createElement('div');
+            col.className = 'col-md-6';
+            col.innerHTML = `
+                <h5>${feature.title}</h5>
+                <p class="small opacity-75">${feature.desc}</p>
+            `;
+            featuresRow.appendChild(col);
+        });
+    }
+}
+

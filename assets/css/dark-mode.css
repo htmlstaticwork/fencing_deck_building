@@ -42,6 +42,10 @@ body.dark-mode .nav-link:hover {
     color: var(--accent-color) !important;
 }
 
+body.dark-mode .nav-link.active {
+    color: #a8ffc8 !important;
+}
+
 /* Specific elements that need visibility tweaks */
 body.dark-mode .footer {
     background-color: #000000;

@@ -81,7 +81,8 @@
 
 .table-responsive .table th,
 .table-responsive .table td {
-    white-space: nowrap; /* Prevent text wrapping and column squeezing */
+    white-space: nowrap;
+    /* Prevent text wrapping and column squeezing */
 }
 
 .form-control,
@@ -269,7 +270,8 @@ a:hover {
 }
 
 .theme-toggle,
-.rtl-toggle {
+.rtl-toggle,
+.logout-toggle {
     width: 48px;
     height: 48px;
     padding: 0 !important;
@@ -435,6 +437,31 @@ a:hover {
 
 .nav-link.active {
     color: var(--accent-color) !important;
+}
+
+/* Nav Pills Customization */
+.nav-pills .nav-link {
+    border-radius: 0 !important;
+    color: var(--primary-color) !important;
+    font-weight: 600;
+    transition: var(--transition);
+    padding: 0.75rem 1.5rem;
+    margin: 0 5px;
+    border: 1px solid transparent;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: var(--accent-color) !important;
+    color: #a8ffc8 !important;
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.2);
+}
+
+.nav-pills .nav-link:hover:not(.active) {
+    color: var(--accent-color) !important;
+    background-color: rgba(var(--accent-rgb), 0.05);
+    border-color: rgba(var(--accent-rgb), 0.2);
 }
 
 @media (min-width: 1101px) {
